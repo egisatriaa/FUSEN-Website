@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="output.css" />
+        <title>FUSEN : Web Design</title>
+    </head>
+    <script>
+        // nyoba
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            500: '#ff8a00',
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <body class="bg-white">
+        <!-- NAVBAR -->
+        <header class="w-full bg-white border-b border-gray-100 nav-shadow">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- top row: logo + actions -->
+                <div class="flex items-center justify-between h-16">
+                    <!-- left: logo -->
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="flex items-center">
+                            <!-- ganti src logo dengan milikmu -->
+                            <img src="png/logo.png" alt="FUSEN" class="h-8 object-contain" />
+                        </a>
+                    </div>
+
+                    <!-- right: actions -->
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="hidden sm:inline text-sm text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90">
+                            Log in
+                        </a>
+                        <a
+                            href="#"
+                            class="inline-flex items-center px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.03]"
+                        >
+                            Sign up
+                        </a>
+                        <button
+                            aria-label="Cart"
+                            class="ml-2 p-2 rounded-md text-gray-600 relative transition-all duration-200 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 hover:ring-2 hover:ring-orange-300/40"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
+                                />
+                            </svg>
+                            <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full px-1.5">2</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- category bar (nanti coba mobile: scrollable row) -->
+                <nav class="mt-2">
+                    <div class="overflow-x-auto no-scrollbar">
+                        <ul class="flex gap-4 items-center py-3 px-1 md:justify-center md:gap-6">
+                            <!-- example item -->
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/bowl.png" alt="bowl" class="w-15 h-10" />
+                                    <span class="cat-label">Bowls</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/boxes.png" alt="boxes" class="w-15 h-10" />
+                                    <span class="cat-label font-semibold text-gray-900">Boxes</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/cups.png" alt="cups" class="w-9 h-10" />
+                                    <span class="cat-label">Cups</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/bags.png" alt="bags" class="w-12 h-10" />
+
+                                    <span class="cat-label">Bags</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/utensil.png" alt="utensil" class="w-15 h-10" />
+                                    <span class="cat-label">Utensils</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/sticker.png" alt="stiker" class="w-15 h-10" />
+                                    <span class="cat-label">Stickers</span>
+                                </a>
+                            </li>
+
+                            <li class="shrink-0">
+                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/uniforms.png" alt="uniforms" class="w-15 h-10" />
+                                    <span class="cat-label">Uniforms</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="w-full bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <!-- LEFT TEXT -->
+                    <div class="space-y-6">
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-gray-900">
+                            CUSTOM
+                            <br />
+                            PACKAGING
+                            <br />
+                            MADE EASY
+                        </h1>
+
+                        <p class="text-gray-600 max-w-md">Lorem ipsum as one unified and integrated software with an impressive array of features exact needs.</p>
+
+                        <button class="px-6 py-3 bg-orange-500 text-white font-medium rounded-lg shadow-md hover:bg-orange-600 transition">Get Started</button>
+                    </div>
+
+                    <!-- right img -->
+                    <div class="relative flex justify-center lg:justify-end">
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[65%] h-full bg-linear-to-b from-[#f7fafd] to-white rounded-3xl blur-[1px]"
+                        ></div>
+
+                        <img src="png/hero.png" alt="Hero Image" class="relative w-full max-w-xl select-none pointer-events-none" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENT LOGO -->
+        <section class="mt-12">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+                <div class="border-t border-gray-100"></div>
+
+                <!-- logo container-->
+                <div class="mt-6 py-6">
+                    <div class="overflow-x-auto">
+                        <ul class="flex items-center gap-8 px-4 sm:px-6 md:justify-center md:gap-12">
+                            <li class="shrink-0">
+                                <img src="png/america.png" alt="American Crystal Sugar Company" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/nestle.png" alt="Nestle" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/merk.png" alt="Merck" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/cocacola.png" alt="Coca-Cola" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/braun.png" alt="B. Braun" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/generalmils.png" alt="General Mills" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+
+                            <li class="shrink-0">
+                                <img src="png/lilly.png" alt="Lilly" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="mt-16 bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-center">
+                            <img src="png/lowminimum.png" alt="Low Minimum Orders" class="w-36 h-36 object-contain" />
+                        </div>
+
+                        <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">Low Minimum Orders</h3>
+
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
+                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
+                        </p>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-center">
+                            <img src="png/minutes.png" alt="1 Minute Custom Designs" class="w-36 h-36 object-contain" />
+                        </div>
+
+                        <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">1 Minute Custom Designs</h3>
+
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
+                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
+                        </p>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+                        <div class="flex justify-center">
+                            <img src="png/inventory.png" alt="Inventory Management" class="w-36 h-36 object-contain" />
+                        </div>
+
+                        <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">Inventory Management</h3>
+
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
+                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT SHOWCASE-->
+        <section class="w-full bg-white mt-16">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <!-- Iimg (kiri di desktop; atas di mobile) -->
+                    <div class="order-1 lg:order-1 flex justify-center lg:justify-start">
+                        <div class="relative w-full max-w-xl">
+                            <!-- rounded card background -->
+                            <div class="rounded-2xl bg-white shadow-2xl p-6">
+                                <img src="png/endHero.png" alt="Product Showcase" class="w-full h-auto object-contain rounded-xl select-none pointer-events-none" />
+                            </div>
+
+                            <!-- nyoba floating faint decoration -->
+                            <div
+                                class="hidden md:block absolute -right-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"
+                            ></div>
+                        </div>
+                    </div>
+
+                    <!-- TEXT (kanan di desktop; bawah di mobile) -->
+                    <div class="order-2 lg:order-2 space-y-6">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">1 Minute Custom Designs</h2>
+
+                        <p class="text-gray-600 max-w-xl">
+                            Lorem ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as
+                            one unified and integrated software application with an impressive array of features & functions to meet your exact needs.
+                        </p>
+
+                        <div>
+                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">
+                                View Products
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- inventory management section -->
+        <section class="w-full bg-white mt-24">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <!-- TEXT LEFT -->
+                    <div class="space-y-6 order-2 lg:order-1">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">Inventory Management</h2>
+
+                        <p class="text-gray-600 max-w-xl">
+                            Loram ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as
+                            one unified and integrated software application with an impressive array of features & functions to meet your exact needs.
+                        </p>
+
+                        <div>
+                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">
+                                Know More
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- img right -->
+                    <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-xl">
+                            <div class="rounded-2xl bg-white shadow-2xl p-6">
+                                <img src="png/myInventory.png" alt="Inventory UI" class="w-full h-auto object-contain rounded-xl select-none pointer-events-none" />
+                            </div>
+
+                            <!-- Nyoba blurred background -->
+                            <div
+                                class="hidden md:block absolute -left-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16">
+            <h3 class="text-2xl md:text-3xl font-extrabold text-center">Popular Products</h3>
+
+            <div class="relative mt-8">
+                <!-- Left arrow -->
+                <button
+                    id="prodPrev"
+                    aria-label="Prev"
+                    class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105"
+                >
+                    <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <!-- Scrollable product row (mobile) / grid (md+) -->
+                <div id="productsRow" class="overflow-x-auto no-scrollbar scroll-smooth py-4">
+                    <ul class="flex gap-6 md:grid md:grid-cols-3 md:gap-8 md:items-stretch md:overflow-visible">
+                        <!-- Card 1 -->
+                        <li class="min-w-[260px] md:min-w-0">
+                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                <div class="w-40 h-40 flex items-center justify-center">
+                                    <img src="png/box1.png" alt="Biscute Box" class="w-full h-full object-contain select-none pointer-events-none" />
+                                </div>
+
+                                <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
+                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+
+                                <div class="mt-6 w-full">
+                                    <button
+                                        class="w-full inline-block px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow hover:shadow-lg transition"
+                                    >
+                                        Customize It
+                                    </button>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Card 2 -->
+                        <li class="min-w-[260px] md:min-w-0">
+                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                <div class="w-40 h-40 flex items-center justify-center">
+                                    <img src="png/box2.png" alt="Biscute Box 2" class="w-full h-full object-contain select-none pointer-events-none" />
+                                </div>
+
+                                <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
+                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+
+                                <div class="mt-6 w-full">
+                                    <button
+                                        class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition"
+                                    >
+                                        Customize It
+                                    </button>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Card 3 -->
+                        <li class="min-w-[260px] md:min-w-0">
+                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                <div class="w-40 h-40 flex items-center justify-center">
+                                    <img src="png/box3.png" alt="Coffee Box" class="w-full h-full object-contain select-none pointer-events-none" />
+                                </div>
+
+                                <h4 class="mt-6 font-semibold text-lg">Coffee Box - 45</h4>
+                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+
+                                <div class="mt-6 w-full">
+                                    <button
+                                        class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition"
+                                    >
+                                        Customize It
+                                    </button>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right arrow -->
+                <button
+                    id="prodNext"
+                    aria-label="Next"
+                    class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105"
+                >
+                    <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- FREE DELIVERY-->
+        <section class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl md:text-3xl font-extrabold">Free Deliver on all Orders</h3>
+                    <p class="mt-4 text-gray-600 max-w-xl">
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
+                        Lorem Ipsum is that it has a more-or-less normal distribution of letters making it look like readable English.
+                    </p>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                    <img src="png/kurir.png" alt="Kurir" class="w-full max-w-md object-contain select-none pointer-events-none" />
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-12">
+            <div class="max-w-6xl mx-auto px-6 md:px-10">
+                <div class="relative bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-10">
+                    <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+                        <!-- Text -->
+                        <div class="md:flex-1">
+                            <h4 class="text-xl md:text-2xl font-extrabold leading-snug">Sign up for Newsletter to get 10% OFF on your First Purchase</h4>
+                        </div>
+
+                        <!-- Form (input + button) -->
+                        <form class="w-full md:flex md:flex-col md:items-start md:flex-[0_0_480px]" onsubmit="return false;">
+                            <label for="email" class="sr-only">Enter Your Email Address</label>
+
+                            <input
+                                id="email"
+                                type="email"
+                                placeholder="Enter Your Email Address"
+                                required
+                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200"
+                            />
+
+                            <button type="submit" class="w-full mt-3 px-4 py-3 rounded-lg bg-[#ff8b03] text-white font-semibold hover:shadow-lg transition">
+                                Subscribe Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="w-full bg-white border-t border-gray-100 mt-20">
+            <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    <!-- Left: logo + address (col-span 4 on md) -->
+                    <div class="md:col-span-4">
+                        <a href="#" class="inline-block mb-4">
+                            <img src="png/logo.png" alt="FUSEN" class="h-10 object-contain" />
+                        </a>
+
+                        <address class="not-italic text-sm text-gray-600 space-y-2">
+                            <div>180 N Street Dr Ste 1200</div>
+                            <div>Anaheim CA 92808 USA</div>
+                        </address>
+
+                        <p class="mt-6 text-xs text-gray-400">
+                            ©
+                            <span id="year"></span>
+                            Fusen packages. All rights reserved.
+                        </p>
+                    </div>
+
+                    <!-- mid 3 columns( col spans 2 on md) -->
+                    <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="text-sm font-semibold text-gray-900 mb-3">Helpful Link</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li><a href="#" class="hover:text-gray-900">Products</a></li>
+                                <li><a href="#" class="hover:text-gray-900">Inventory</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm font-semibold text-gray-900 mb-3">Information</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li><a href="#" class="hover:text-gray-900">Contact Us</a></li>
+                                <li><a href="#" class="hover:text-gray-900">Privacy Policy</a></li>
+                                <li><a href="#" class="hover:text-gray-900">Terms of Use</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-sm font-semibold text-gray-900 mb-3">More</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li><a href="#" class="hover:text-gray-900">FAQ</a></li>
+                                <li><a href="#" class="hover:text-gray-900">Investors</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right: contact info (col-span 2 on md) -->
+                    <div class="md:col-span-2">
+                        <h4 class="text-sm font-semibold text-gray-900 mb-3">Email</h4>
+                        <p class="text-sm text-gray-600 mb-4">
+                            <a href="mailto:info@fusen.com" class="hover:text-gray-900">info@fusen.com</a>
+                        </p>
+
+                        <h4 class="text-sm font-semibold text-gray-900 mb-3">Call</h4>
+                        <p class="text-sm text-gray-600">
+                            <a href="tel:+887149965302" class="hover:text-gray-900">+88 · 714 · 996 · 5302</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                const row = document.getElementById('productsRow');
+                const prev = document.getElementById('prodPrev');
+                const next = document.getElementById('prodNext');
+
+                function scrollByWidth(dir = 1) {
+                    if (!row) return;
+                    const card = row.querySelector('li');
+                    if (!card) return;
+                    const gap = parseFloat(getComputedStyle(card.parentElement).columnGap) || 24;
+                    const scrollAmount = card.offsetWidth + gap;
+                    row.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+                }
+
+                prev?.addEventListener('click', () => scrollByWidth(-1));
+                next?.addEventListener('click', () => scrollByWidth(1));
+            })();
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
