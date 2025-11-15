@@ -4,22 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="output.css" />
+        <link rel="stylesheet" href="animasi.css" />
         <title>FUSEN : Web Design</title>
     </head>
-    <script>
-        // nyoba
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            500: '#ff8a00',
-                        },
-                    },
-                },
-            },
-        };
-    </script>
+
     <body class="bg-white">
         <!-- NAVBAR -->
         <header class="w-full bg-white border-b border-gray-100 nav-shadow">
@@ -29,30 +17,17 @@
                     <!-- left: logo -->
                     <div class="flex items-center gap-4">
                         <a href="#" class="flex items-center">
-                            <!-- ganti src logo dengan milikmu -->
                             <img src="png/logo.png" alt="FUSEN" class="h-8 object-contain" />
                         </a>
                     </div>
 
                     <!-- right: actions -->
                     <div class="flex items-center gap-3">
-                        <a href="#" class="hidden sm:inline text-sm text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90">
-                            Log in
-                        </a>
-                        <a
-                            href="#"
-                            class="inline-flex items-center px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.03]"
-                        >
-                            Sign up
-                        </a>
-                        <button
-                            aria-label="Cart"
-                            class="ml-2 p-2 rounded-md text-gray-600 relative transition-all duration-200 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 hover:ring-2 hover:ring-orange-300/40"
-                        >
+                        <a href="#" class="hidden sm:inline text-sm text-gray-700 hover:text-black transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90">Log in</a>
+                        <a href="#" class="inline-flex items-center px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:scale-[1.03]">Sign up</a>
+                        <button aria-label="Cart" class="ml-2 p-2 rounded-md text-gray-600 relative transition-all duration-200 hover:bg-gray-100 hover:shadow-md hover:-translate-y-0.5 hover:ring-2 hover:ring-orange-300/40">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
-                                />
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
                             </svg>
                             <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full px-1.5">2</span>
                         </button>
@@ -60,57 +35,69 @@
                 </div>
 
                 <!-- category bar (nanti coba mobile: scrollable row) -->
-                <nav class="mt-2">
-                    <div class="overflow-x-auto no-scrollbar">
+                <nav class="relative mt-2">
+                    <!-- left button -->
+                    <button id="catLeftBtn" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 md:hidden p-2 bg-white shadow rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- right button -->
+                    <button id="catRightBtn" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 md:hidden p-2 bg-white shadow rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <div id="catScroll" class="overflow-x-auto no-scrollbar px-8">
                         <ul class="flex gap-4 items-center py-3 px-1 md:justify-center md:gap-6">
-                            <!-- example item -->
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/bowl.png" alt="bowl" class="w-15 h-10" />
-                                    <span class="cat-label">Bowls</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/bowl.png" class="w-15 h-10" />
+                                    <span>Bowls</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/boxes.png" alt="boxes" class="w-15 h-10" />
-                                    <span class="cat-label font-semibold text-gray-900">Boxes</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/boxes.png" class="w-15 h-10" />
+                                    <span class="font-semibold text-gray-900">Boxes</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/cups.png" alt="cups" class="w-9 h-10" />
-                                    <span class="cat-label">Cups</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/cups.png" class="w-9 h-10" />
+                                    <span>Cups</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/bags.png" alt="bags" class="w-12 h-10" />
-
-                                    <span class="cat-label">Bags</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/bags.png" class="w-12 h-10" />
+                                    <span>Bags</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/utensil.png" alt="utensil" class="w-15 h-10" />
-                                    <span class="cat-label">Utensils</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/utensil.png" class="w-15 h-10" />
+                                    <span>Utensils</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/sticker.png" alt="stiker" class="w-15 h-10" />
-                                    <span class="cat-label">Stickers</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/sticker.png" class="w-15 h-10" />
+                                    <span>Stickers</span>
                                 </a>
                             </li>
 
                             <li class="shrink-0">
-                                <a href="#" class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
-                                    <img src="png/uniforms.png" alt="uniforms" class="w-15 h-10" />
-                                    <span class="cat-label">Uniforms</span>
+                                <a class="flex flex-col items-center gap-1 px-3 py-1 hover:bg-gray-50 rounded-lg">
+                                    <img src="png/uniforms.png" class="w-15 h-10" />
+                                    <span>Uniforms</span>
                                 </a>
                             </li>
                         </ul>
@@ -139,9 +126,7 @@
 
                     <!-- right img -->
                     <div class="relative flex justify-center lg:justify-end">
-                        <div
-                            class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[65%] h-full bg-linear-to-b from-[#f7fafd] to-white rounded-3xl blur-[1px]"
-                        ></div>
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[65%] h-full bg-linear-to-b from-[#f7fafd] to-white rounded-3xl blur-[1px]"></div>
 
                         <img src="png/hero.png" alt="Hero Image" class="relative w-full max-w-xl select-none pointer-events-none" />
                     </div>
@@ -150,42 +135,34 @@
         </section>
 
         <!-- CLIENT LOGO -->
+
         <section class="mt-12">
             <div class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
                 <div class="border-t border-gray-100"></div>
 
-                <!-- logo container-->
                 <div class="mt-6 py-6">
-                    <div class="overflow-x-auto">
-                        <ul class="flex items-center gap-8 px-4 sm:px-6 md:justify-center md:gap-12">
-                            <li class="shrink-0">
-                                <img src="png/america.png" alt="American Crystal Sugar Company" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
+                    <!-- wrapper yang overflow -->
+                    <div id="logoWrapper" class="overflow-hidden">
+                        <!-- track: fleksibel, lebar otomatis -->
+                        <div id="logoTrack" class="flex items-center gap-8 whitespace-nowrap">
+                            <!-- ORIGINAL SET -->
+                            <img src="png/america.png" alt="america" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/nestle.png" alt="nestle" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/merk.png" alt="merk" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/cocacola.png" alt="coca" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/braun.png" alt="braun" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/generalmils.png" alt="general" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/lilly.png" alt="lilly" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
 
-                            <li class="shrink-0">
-                                <img src="png/nestle.png" alt="Nestle" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-
-                            <li class="shrink-0">
-                                <img src="png/merk.png" alt="Merck" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-
-                            <li class="shrink-0">
-                                <img src="png/cocacola.png" alt="Coca-Cola" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-
-                            <li class="shrink-0">
-                                <img src="png/braun.png" alt="B. Braun" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-
-                            <li class="shrink-0">
-                                <img src="png/generalmils.png" alt="General Mills" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-
-                            <li class="shrink-0">
-                                <img src="png/lilly.png" alt="Lilly" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
-                            </li>
-                        </ul>
+                            <!-- DUPLICATE SET (for seamless loop) -->
+                            <img src="png/america.png" alt="america" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/nestle.png" alt="nestle" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/merk.png" alt="merk" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/cocacola.png" alt="coca" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/braun.png" alt="braun" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/generalmils.png" alt="general" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                            <img src="png/lilly.png" alt="lilly" class="h-6 sm:h-8 md:h-8 lg:h-10 grayscale opacity-60" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -203,9 +180,7 @@
 
                         <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">Low Minimum Orders</h3>
 
-                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
-                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
-                        </p>
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.</p>
                     </article>
 
                     <!-- Card 2 -->
@@ -216,9 +191,7 @@
 
                         <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">1 Minute Custom Designs</h3>
 
-                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
-                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
-                        </p>
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.</p>
                     </article>
 
                     <!-- Card 3 -->
@@ -229,9 +202,7 @@
 
                         <h3 class="mt-6 text-center text-lg font-semibold text-gray-900">Inventory Management</h3>
 
-                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">
-                            Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.
-                        </p>
+                        <p class="mt-3 text-center text-sm text-gray-600 leading-relaxed">Lorem ipsum as one unified and integrated software application with an impressive array of features and functions to meet your exact needs.</p>
                     </article>
                 </div>
             </div>
@@ -250,9 +221,7 @@
                             </div>
 
                             <!-- nyoba floating faint decoration -->
-                            <div
-                                class="hidden md:block absolute -right-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"
-                            ></div>
+                            <div class="hidden md:block absolute -right-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"></div>
                         </div>
                     </div>
 
@@ -261,14 +230,12 @@
                         <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">1 Minute Custom Designs</h2>
 
                         <p class="text-gray-600 max-w-xl">
-                            Lorem ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as
-                            one unified and integrated software application with an impressive array of features & functions to meet your exact needs.
+                            Lorem ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as one unified and integrated software application with an impressive array of
+                            features & functions to meet your exact needs.
                         </p>
 
                         <div>
-                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">
-                                View Products
-                            </a>
+                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -284,14 +251,12 @@
                         <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">Inventory Management</h2>
 
                         <p class="text-gray-600 max-w-xl">
-                            Loram ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as
-                            one unified and integrated software application with an impressive array of features & functions to meet your exact needs.
+                            Loram ipsum as one unified and integrated software with an impressive array of features and functions to meet your exact needs. Developed as one unified and integrated software application with an impressive array of
+                            features & functions to meet your exact needs.
                         </p>
 
                         <div>
-                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">
-                                Know More
-                            </a>
+                            <a href="#" class="inline-block px-6 py-3 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg">Know More</a>
                         </div>
                     </div>
 
@@ -303,9 +268,7 @@
                             </div>
 
                             <!-- Nyoba blurred background -->
-                            <div
-                                class="hidden md:block absolute -left-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"
-                            ></div>
+                            <div class="hidden md:block absolute -left-8 -bottom-6 w-24 h-24 rounded-full bg-linear-to-br from-white to-transparent opacity-60 blur-xl"></div>
                         </div>
                     </div>
                 </div>
@@ -317,91 +280,96 @@
 
             <div class="relative mt-8">
                 <!-- Left arrow -->
-                <button
-                    id="prodPrev"
-                    aria-label="Prev"
-                    class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105"
-                >
+                <button id="prodPrev" aria-label="Prev" class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105">
                     <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none">
                         <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
 
-                <!-- Scrollable product row (mobile) / grid (md+) -->
-                <div id="productsRow" class="overflow-x-auto no-scrollbar scroll-smooth py-4">
-                    <ul class="flex gap-6 md:grid md:grid-cols-3 md:gap-8 md:items-stretch md:overflow-visible">
-                        <!-- Card 1 -->
-                        <li class="min-w-[260px] md:min-w-0">
-                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
-                                <div class="w-40 h-40 flex items-center justify-center">
-                                    <img src="png/box1.png" alt="Biscute Box" class="w-full h-full object-contain select-none pointer-events-none" />
-                                </div>
+                <!-- PRODUCT SCROLL BUTTONS (mobile only) -->
+                <div class="relative">
+                    <!-- Mobile-only Left Button -->
+                    <button
+                        id="prodLeftBtn"
+                        class="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white shadow-lg rounded-full border border-gray-200 active:scale-95 transition md:hidden"
+                        aria-label="Prev products (mobile)"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
+                            <path d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                        </svg>
+                    </button>
 
-                                <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
-                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+                    <!-- Mobile-only Right Button -->
+                    <button
+                        id="prodRightBtn"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white shadow-lg rounded-full border border-gray-200 active:scale-95 transition md:hidden"
+                        aria-label="Next products (mobile)"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
+                            <path d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 1 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                        </svg>
+                    </button>
 
-                                <div class="mt-6 w-full">
-                                    <button
-                                        class="w-full inline-block px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow hover:shadow-lg transition"
-                                    >
-                                        Customize It
-                                    </button>
-                                </div>
-                            </article>
-                        </li>
+                    <!-- SINGLE product scroll wrapper (targetnya scrollBy) -->
+                    <div id="productsRow" class="overflow-x-auto no-scrollbar scroll-smooth py-4 px-1">
+                        <ul class="flex gap-6 md:grid md:grid-cols-3 md:gap-8 md:items-stretch md:overflow-visible">
+                            <!-- Card 1 -->
+                            <li class="min-w-[260px] md:min-w-0">
+                                <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                    <div class="w-40 h-40 flex items-center justify-center">
+                                        <img src="png/box1.png" alt="Biscute Box" class="w-full h-full object-contain select-none pointer-events-none" />
+                                    </div>
 
-                        <!-- Card 2 -->
-                        <li class="min-w-[260px] md:min-w-0">
-                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
-                                <div class="w-40 h-40 flex items-center justify-center">
-                                    <img src="png/box2.png" alt="Biscute Box 2" class="w-full h-full object-contain select-none pointer-events-none" />
-                                </div>
+                                    <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
+                                    <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
 
-                                <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
-                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+                                    <div class="mt-6 w-full">
+                                        <button class="w-full inline-block px-4 py-2 rounded-lg bg-[#ff8b03] text-white text-sm font-medium shadow hover:shadow-lg transition">Customize It</button>
+                                    </div>
+                                </article>
+                            </li>
 
-                                <div class="mt-6 w-full">
-                                    <button
-                                        class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition"
-                                    >
-                                        Customize It
-                                    </button>
-                                </div>
-                            </article>
-                        </li>
+                            <!-- Card 2 -->
+                            <li class="min-w-[260px] md:min-w-0">
+                                <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                    <div class="w-40 h-40 flex items-center justify-center">
+                                        <img src="png/box2.png" alt="Biscute Box 2" class="w-full h-full object-contain select-none pointer-events-none" />
+                                    </div>
 
-                        <!-- Card 3 -->
-                        <li class="min-w-[260px] md:min-w-0">
-                            <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
-                                <div class="w-40 h-40 flex items-center justify-center">
-                                    <img src="png/box3.png" alt="Coffee Box" class="w-full h-full object-contain select-none pointer-events-none" />
-                                </div>
+                                    <h4 class="mt-6 font-semibold text-lg">Biscute Box - 32</h4>
+                                    <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
 
-                                <h4 class="mt-6 font-semibold text-lg">Coffee Box - 45</h4>
-                                <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+                                    <div class="mt-6 w-full">
+                                        <button class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition">Customize It</button>
+                                    </div>
+                                </article>
+                            </li>
 
-                                <div class="mt-6 w-full">
-                                    <button
-                                        class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition"
-                                    >
-                                        Customize It
-                                    </button>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                            <!-- Card 3 -->
+                            <li class="min-w-[260px] md:min-w-0">
+                                <article class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition card-hover h-full flex flex-col items-center text-center">
+                                    <div class="w-40 h-40 flex items-center justify-center">
+                                        <img src="png/box3.png" alt="Coffee Box" class="w-full h-full object-contain select-none pointer-events-none" />
+                                    </div>
+
+                                    <h4 class="mt-6 font-semibold text-lg">Coffee Box - 45</h4>
+                                    <p class="text-sm text-gray-500 mt-2">Impressive array of features to meet your exact needs.</p>
+
+                                    <div class="mt-6 w-full">
+                                        <button class="w-full inline-block px-4 py-2 rounded-lg bg-white border border-gray-100 shadow text-orange-500 font-semibold hover:shadow-lg transition">Customize It</button>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Desktop right arrow (kept as is) -->
+                    <button id="prodNext" aria-label="Next" class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105">
+                        <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
-
-                <!-- Right arrow -->
-                <button
-                    id="prodNext"
-                    aria-label="Next"
-                    class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white shadow-md hover:scale-105"
-                >
-                    <svg class="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
             </div>
         </section>
 
@@ -411,8 +379,8 @@
                 <div class="order-2 lg:order-1">
                     <h3 class="text-2xl md:text-3xl font-extrabold">Free Deliver on all Orders</h3>
                     <p class="mt-4 text-gray-600 max-w-xl">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using
-                        Lorem Ipsum is that it has a more-or-less normal distribution of letters making it look like readable English.
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters making it
+                        look like readable English.
                     </p>
                 </div>
 
@@ -431,21 +399,13 @@
                             <h4 class="text-xl md:text-2xl font-extrabold leading-snug">Sign up for Newsletter to get 10% OFF on your First Purchase</h4>
                         </div>
 
-                        <!-- Form (input + button) -->
+                        <!-- Form -->
                         <form class="w-full md:flex md:flex-col md:items-start md:flex-[0_0_480px]" onsubmit="return false;">
                             <label for="email" class="sr-only">Enter Your Email Address</label>
 
-                            <input
-                                id="email"
-                                type="email"
-                                placeholder="Enter Your Email Address"
-                                required
-                                class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200"
-                            />
+                            <input id="email" type="email" placeholder="Enter Your Email Address" required class="w-full px-4 py-3 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200" />
 
-                            <button type="submit" class="w-full mt-3 px-4 py-3 rounded-lg bg-[#ff8b03] text-white font-semibold hover:shadow-lg transition">
-                                Subscribe Now
-                            </button>
+                            <button type="submit" class="w-full mt-3 px-4 py-3 rounded-lg bg-[#ff8b03] text-white font-semibold hover:shadow-lg transition">Subscribe Now</button>
                         </form>
                     </div>
                 </div>
@@ -519,25 +479,144 @@
         </footer>
 
         <script>
-            (function () {
-                const row = document.getElementById('productsRow');
-                const prev = document.getElementById('prodPrev');
-                const next = document.getElementById('prodNext');
+            document.addEventListener('DOMContentLoaded', () => {
+                try {
+                    // PRODUCT SCROLL BUTTONS
+                    (function () {
+                        const row = document.getElementById('productsRow');
+                        if (!row) return;
 
-                function scrollByWidth(dir = 1) {
-                    if (!row) return;
-                    const card = row.querySelector('li');
-                    if (!card) return;
-                    const gap = parseFloat(getComputedStyle(card.parentElement).columnGap) || 24;
-                    const scrollAmount = card.offsetWidth + gap;
-                    row.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+                        const prev = document.getElementById('prodPrev');
+                        const next = document.getElementById('prodNext');
+                        const leftBtn = document.getElementById('prodLeftBtn');
+                        const rightBtn = document.getElementById('prodRightBtn');
+
+                        function scrollStep() {
+                            return Math.max(120, Math.round(row.clientWidth * 0.4));
+                        }
+
+                        function scrollByDir(dir) {
+                            row.scrollBy({ left: dir * scrollStep(), behavior: 'smooth' });
+                        }
+
+                        // mobile buttons
+                        leftBtn && leftBtn.addEventListener('click', () => scrollByDir(-1));
+                        rightBtn && rightBtn.addEventListener('click', () => scrollByDir(1));
+
+                        // desktop buttons
+                        prev && prev.addEventListener('click', () => scrollByDir(-1));
+                        next && next.addEventListener('click', () => scrollByDir(1));
+
+                        // hide mobile jika tidak overflow
+                        function updateVisibility() {
+                            const canScroll = row.scrollWidth > row.clientWidth + 4;
+                            if (leftBtn) leftBtn.style.display = canScroll ? '' : 'none';
+                            if (rightBtn) rightBtn.style.display = canScroll ? '' : 'none';
+                        }
+                        updateVisibility();
+                        window.addEventListener('resize', updateVisibility);
+                    })();
+
+                    // YEAR SETTER
+
+                    (function () {
+                        const el = document.getElementById('year');
+                        if (el) el.textContent = new Date().getFullYear();
+                    })();
+
+                    //    LOGO AUTO-SWIPE
+
+                    (function () {
+                        const wrapper = document.getElementById('logoWrapper');
+                        const track = document.getElementById('logoTrack');
+                        if (!wrapper || !track) return;
+
+                        const SPEED = 60;
+                        let rafId = null;
+                        let lastTs = null;
+                        let paused = false;
+
+                        function duplicateUntilFit() {
+                            const trackWidth = track.scrollWidth;
+                            const wrapWidth = wrapper.clientWidth;
+
+                            if (trackWidth < wrapWidth * 2) {
+                                const clones = Array.from(track.children).map((c) => c.cloneNode(true));
+                                clones.forEach((node) => track.appendChild(node));
+                            }
+                        }
+                        duplicateUntilFit();
+
+                        function animate(ts) {
+                            if (!lastTs) lastTs = ts;
+                            const delta = ts - lastTs;
+                            lastTs = ts;
+
+                            if (!paused) {
+                                const move = (SPEED * delta) / 1000;
+                                wrapper.scrollLeft += move;
+
+                                const reset = track.scrollWidth / 2;
+                                if (wrapper.scrollLeft >= reset) {
+                                    wrapper.scrollLeft -= reset;
+                                }
+                            }
+                            rafId = requestAnimationFrame(animate);
+                        }
+
+                        rafId = requestAnimationFrame(animate);
+                        wrapper.addEventListener('mouseenter', () => (paused = true));
+                        wrapper.addEventListener('mouseleave', () => (paused = false));
+                        wrapper.addEventListener('touchstart', () => (paused = true));
+                        wrapper.addEventListener('touchend', () => (paused = false));
+
+                        window.addEventListener('beforeunload', () => {
+                            rafId && cancelAnimationFrame(rafId);
+                        });
+                    })();
+
+                    //    CATEGORY SCROLL BUTTONS
+
+                    (function () {
+                        const scrollBox = document.getElementById('catScroll');
+                        if (!scrollBox) return;
+
+                        const left = document.getElementById('catLeftBtn');
+                        const right = document.getElementById('catRightBtn');
+
+                        function step() {
+                            return Math.max(120, Math.round(scrollBox.clientWidth * 0.35));
+                        }
+
+                        left &&
+                            left.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                scrollBox.scrollBy({ left: -step(), behavior: 'smooth' });
+                            });
+
+                        right &&
+                            right.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                scrollBox.scrollBy({ left: step(), behavior: 'smooth' });
+                            });
+
+                        function updateVisibility() {
+                            if (!left || !right) return;
+                            const canScroll = scrollBox.scrollWidth > scrollBox.clientWidth + 4;
+                            left.style.display = canScroll ? '' : 'none';
+                            right.style.display = canScroll ? '' : 'none';
+                        }
+                        updateVisibility();
+                        window.addEventListener('resize', updateVisibility);
+
+                        // console debug (Harus selalu di ingat)
+                        left && left.addEventListener('click', () => console.log('LEFT BTN CLICKED'));
+                        right && right.addEventListener('click', () => console.log('RIGHT BTN CLICKED'));
+                    })();
+                } catch (err) {
+                    console.error('Script init error:', err);
                 }
-
-                prev?.addEventListener('click', () => scrollByWidth(-1));
-                next?.addEventListener('click', () => scrollByWidth(1));
-            })();
-
-            document.getElementById('year').textContent = new Date().getFullYear();
+            });
         </script>
     </body>
 </html>
